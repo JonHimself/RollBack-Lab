@@ -11,7 +11,7 @@ let rollbar = new Rollbar({
 const app = express()
 
 app.use(express.json())
-app.use('/js', express.static('/index.js'))
+app.use('/js', express.static('./public/index.js'))
 
 let coins = [];
 
