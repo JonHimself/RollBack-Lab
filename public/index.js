@@ -16,7 +16,7 @@ axios.get(`https://api.coingecko.com/api/v3/coins/${tickerValue}/tickers`)
 });
 
 axios.post(`/api/coinName`, {coinName: input.value})
-    .then(res => {
+    .then(res => {console.log('hit then')
         let nextPara = document.createElement('p')
         nextPara.textContent = input.value
         list.appendChild(nextPara)
