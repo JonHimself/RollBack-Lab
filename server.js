@@ -28,6 +28,7 @@ app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body
     coins.push(coinName)
     rollbar.info('Post request successful')
+    res.sendStatus(200)
 })
 
 

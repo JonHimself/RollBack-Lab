@@ -17,7 +17,6 @@ axios.get(`https://api.coingecko.com/api/v3/coins/${tickerValue}/tickers`)
 
 axios.post(`/api/coinName`, {coinName: input.value})
     .then(res => {
-        console.log(res.data)
         list.textContent = input.value
         }).catch(e => {
             console.log(e)
