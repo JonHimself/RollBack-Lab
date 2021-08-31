@@ -11,6 +11,8 @@ const app = express()
 
 app.use(express.json())
 
+let coins = [];
+
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, '/index.html'))
     rollbar.info('html file served successfully.')
@@ -20,6 +22,12 @@ app.get('/index.js', (req,res) => {
     res.sendFile(path.join(__dirname, '/index.js'))
     rollbar.info('html file served successfully.')
 })
+
+app.post('/api/coinName', (req, res) => {
+    let {coinName} = req.body
+    coins.push(coinName)
+})
+
 
 const port = process.env.PORT || 4545
 

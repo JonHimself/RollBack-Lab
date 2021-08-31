@@ -2,9 +2,18 @@ let price = document.querySelector('#price');
 let coinName = document.querySelector('#name');
 let button = document.querySelector('#searchBtn');
 let input = document.querySelector('#searchInput');
+let list = document.querySelector('#list');
 
 const searchCoin = () => {
 let tickerValue = input.value.toLowerCase()
+
+axios.post(`/api/coinName`, {coinName: input.value, })
+.then(res => {
+    list.textContent = input.value
+}).catch(e => {
+    console.log(e)
+})
+
 axios.get(`https://api.coingecko.com/api/v3/coins/${tickerValue}/tickers`)
 .then(res => {
     coinName.innerText = res.data.name
