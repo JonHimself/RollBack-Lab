@@ -23,8 +23,6 @@ app.get('/', (req,res) => {
 app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body
     rollbar.info('sent successfully')
-    coins.push(coinName)
-
     for(let i = 0; i < coins.length; i++){
         let coin = coins[i]
         rollbar.log('before if', {coin, coinName})
@@ -33,6 +31,7 @@ app.post('/api/coinName', (req, res) => {
             rollbar.critical('freak out')
             res.status(400).send('you have entered this already')
             }else if (coins[i] !== coinName){
+                coins.push(coinName)
                 rollbar.warning("added");
                 res.status(400).send('careful, do not double enter')
             }  
