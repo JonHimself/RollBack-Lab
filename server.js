@@ -11,6 +11,7 @@ let rollbar = new Rollbar({
 const app = express()
 
 app.use(express.json())
+app.use('/js', express.static('/index.js'))
 
 let coins = [];
 
@@ -19,10 +20,10 @@ app.get('/', (req,res) => {
     rollbar.info('html file served successfully.')
 })
 
-app.get('/index.js', (req,res) => {
-    res.sendFile(path.join(__dirname, '/index.js'))
-    rollbar.info('html file served successfully.')
-})
+// app.get('/index.js', (req,res) => {
+//     res.sendFile(path.join(__dirname, '/index.js'))
+//     rollbar.info('html file served successfully.')
+// })
 
 app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body

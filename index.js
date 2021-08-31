@@ -21,7 +21,6 @@ axios.post(`/api/coinName`, {coinName: input.value})
         }).catch(e => {
             console.log(e)
             })
-
 };
 
 button.addEventListener('click', searchCoin)
