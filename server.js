@@ -20,16 +20,18 @@ app.get('/', (req,res) => {
     rollbar.info('html file served successfully.')
 })
 
-// app.get('/index.js', (req,res) => {
-//     res.sendFile(path.join(__dirname, '/index.js'))
-//     rollbar.info('html file served successfully.')
-// })
-
 app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body
     coins.push(coinName)
-    rollbar.info('Post request successful')
-    res.sendStatus(200)
+for(let i = 0; i < coins.length; i++){
+    if(coinName === coins[i]){
+        rollbar.info('Post request successful')
+        res.sendStatus(200)
+        }else if (coinName){
+            Rollbar.critical("Name exsists")
+            res.status(400).send('you have entered this already')
+        }
+}
 })
 
 
