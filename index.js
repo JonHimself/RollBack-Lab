@@ -17,7 +17,9 @@ axios.get(`https://api.coingecko.com/api/v3/coins/${tickerValue}/tickers`)
 
 axios.post(`/api/coinName`, {coinName: input.value})
     .then(res => {
-        list.textContent = input.value
+        let nextPara = document.createElement('p')
+        nextPara.textContent = input.value
+        list.appendChild(nextPara)
         }).catch(e => {
             console.log(e)
             })
