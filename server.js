@@ -33,7 +33,7 @@ app.post('/api/coinName', (req, res) => {
             }else if (coins[i] !== coinName){
                 coins.push(coinName)
                 rollbar.warning("added");
-                res.status(400).send('careful, do not double enter')
+                res.status(200).send('careful, do not double enter')
             }  
 }
 })
