@@ -30,6 +30,7 @@ app.post('/api/coinName', (req, res) => {
         rollbar.log('before if', {coin, coinName})
         if(coins[i] === coinName){
             rollbar.critical("Name exsists");
+            rollbar.critical('freak out')
             res.status(400).send('you have entered this already')
             }else if (coins[i] !== coinName){
                 rollbar.warning("added");
