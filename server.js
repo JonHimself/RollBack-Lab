@@ -7,6 +7,7 @@ let rollbar = new Rollbar({
     captureUncaught: true,
     captureUnhandledRejections: true
 })
+
 const app = express()
 
 app.use(express.json())
