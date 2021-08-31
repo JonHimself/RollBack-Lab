@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 app.use('/js', express.static('./public/index.js'))
 
-let coins = [];
+let coins = ['doge', 'bitcoin'];
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
@@ -23,6 +23,7 @@ app.get('/', (req,res) => {
 app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body
     rollbar.info('sent successfully')
+
     for(let i = 0; i < coins.length; i++){
         let coin = coins[i]
         rollbar.log('before if', {coin, coinName})
