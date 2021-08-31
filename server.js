@@ -27,7 +27,7 @@ app.post('/api/coinName', (req, res) => {
     res.status(200).send('do not double enter')
 for(let i = 0; i < coins.length; i++){
     if(coins[i] === coinName){
-        rollbar.info("Name exsists")
+        rollbar.critical("Name exsists")
         res.status(400).send('you have entered this already')
         }else if (coins[i] !== coinName){
             rollbar.info("Do not add again")
