@@ -22,7 +22,9 @@ app.get('/', (req,res) => {
 
 app.post('/api/coinName', (req, res) => {
     let {coinName} = req.body
+    coinName = coinName.trim()
     coins.push(coinName)
+
 for(let i = 0; i < coins.length; i++){
     if(coinName === coins[i]){
         rollbar.info('Post request successful')
